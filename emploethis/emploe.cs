@@ -14,37 +14,23 @@ namespace emploethis
         //конструкторы
         public emploe(string name_emp,double solar)
         { 
-            Name = name_emp;
-            Solar = solar; 
+            this.name = name_emp;
+            if (solar < 1 || solar > 1000000)
+            {
+                Console.WriteLine("Ошибка: число не в диапозоне.");
+                er_sol = true;
+            }
+            else
+            {
+                this.solary = solar;
+            }
         }
         public emploe(string name_emp)
         { 
-            Name = name_emp;
-            Solar = 50000;
+            this.name = name_emp;
+            this.solary = 50000;
         }
-        //свойства
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-        public double Solar
-        {
-            get { return solary; }
-            set 
-            {
-                if (value < 1 || value > 1000000)
-                {
-                    Console.WriteLine("Ошибка: в не диапозона.");
-                    er_sol = true;
-                }
-                else
-                { 
-                    solary = value;
-                    er_sol = false;
-                }
-            }
-        }
+
         // действия
         public void Work()
         {
